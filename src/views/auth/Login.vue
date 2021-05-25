@@ -10,7 +10,8 @@
       v-model="password"
     />
     <div class="error" v-if="error">{{ error }}</div>
-    <button>Log in</button>
+    <button v-if="!isPending">Log in</button>
+    <button v-if="isPending" disabled>Loading</button>
   </form>
 </template>
 
@@ -19,7 +20,7 @@ import { ref } from 'vue'
 import useLogin from '../../composables/useLogin'
 export default {
   setup() {
-    const { login, error } = useLogin()
+    const { login, error, isPending } = useLogin()
 
     const email = ref('')
     const password = ref('')
@@ -34,6 +35,8 @@ export default {
 
     return {
       email,
+      error,
+      isPending,
       password,
       handleSubmit
     }
