@@ -14,7 +14,7 @@ const useStorage = () => {
     const storageRef = projectStorage.ref(filePath.value)
 
     try {
-      const ref = await storageRef.put(file)
+      const res = await storageRef.put(file)
       url.value = res.ref.getDownloadURL()
     } catch (err) {
       console.error(err.message)
