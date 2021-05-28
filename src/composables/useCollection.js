@@ -10,8 +10,10 @@ const useCollection = collection => {
     isPending.value = true
 
     try {
-      await projectFireStore.collection(collection).add(doc)
+      const res = await projectFireStore.collection(collection).add(doc)
       isPending.value = false
+
+      return res
     } catch (err) {
       console.error(err.message)
       error.value = err.message
