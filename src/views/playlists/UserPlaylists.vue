@@ -4,13 +4,19 @@
     </div>
 </template>
 <script>
+import getUser from '@/composables/getUser'
+import getCollection from '@/composables/getCollection'
 export default {
-
     name: 'UserPlaylists',
 
     setup() {
-        return {
+        const { user } = getUser()
+        const { documents: playlists } = getCollection('playlists', ['userId', '==', user.value.uid])
 
+        console.log(playlists)
+
+        return {
+            playlists
         };
     },
 };
