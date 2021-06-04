@@ -14,7 +14,12 @@ import { ref } from 'vue'
 import useDocument from '@/composables/useDocument'
 export default {
     name: 'AddSong',
-    props: ['playlist'],
+    props: {
+        playlist: {
+            type: Object,
+            required: true
+        }
+    },
     setup(props) {
         const title = ref('')
         const artist = ref('')

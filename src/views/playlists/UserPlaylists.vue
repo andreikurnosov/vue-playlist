@@ -20,7 +20,6 @@ export default {
         const { user } = getUser()
         const { documents: playlists } = getCollection('playlists', ['userId', '==', user.value.uid])
 
-        console.log(playlists)
 
         return {
             playlists

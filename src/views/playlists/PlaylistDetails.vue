@@ -35,7 +35,12 @@ import { useRouter } from 'vue-router'
 import AddSong from '@/components/AddSong.vue'
 
 export default {
-    props: ['id'],
+    props: {
+        id: {
+            type: String,
+            required: true
+        }
+    },
     components: {
         AddSong
     },
